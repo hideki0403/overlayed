@@ -14,7 +14,7 @@ export const NavBar = ({ clickthrough, isUpdateAvailable }: { clickthrough: bool
   return (
     <div
       data-tauri-drag-region
-      className={`${opacity} cursor-default rounded-t-lg font-bold select-none pr-3 pl-3 p-2 bg-white dark:bg-zinc-900`}
+      className={`${opacity} cursor-default rounded-t-lg font-bold select-none pr-4 pl-1 p-1 bg-white dark:bg-zinc-900`}
     >
       <div data-tauri-drag-region className="flex justify-between">
         <div className="flex items-center">
