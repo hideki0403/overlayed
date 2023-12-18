@@ -68,6 +68,14 @@ export const SettingsView = ({
             </select>
           </div>
 
+          <div>
+            <label className="block mb-2 text-sm font-medium text-white">Low opacity</label>
+            <select className="bg-zinc-800 text-white p-2 rounded-md w-full" defaultValue={ localStorage.getItem("low_opacity") ?? "false" } onChange={(e) => localStorage.setItem("low_opacity", e.target.value)}>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </select>
+          </div>
+
           <hr className="border-zinc-800" />
 
           <div className="">

@@ -7,13 +7,14 @@ export const User = ({ item }: { item: OverlayedUser }) => {
 
   const avatarUrl = avatarHash ? `https://cdn.discordapp.com/avatars/${id}/${avatarHash}.jpg` : "/img/default.png";
 
+  const lowOpacityClass = localStorage.getItem("low_opacity") ? talking ? "" : "opacity-50" : "";
   const talkingClass = talking ? "border-green-500" : "border-zinc-800";
   const mutedClass = selfMuted ? "text-zinc-400" : "";
   const mutedAndDeafened = selfMuted && selfDeafened;
   const avatarClass = selfMuted || selfDeafened ? "text-red-500" : "";
 
   return (
-    <div className={`flex flex-wrap py-1 p-2 items-center text-${ localStorage.getItem("icon_size") ?? "base" }`}>
+    <div className={`flex flex-wrap py-1 p-2 items-center text-${ localStorage.getItem("icon_size") ?? "base" } ${lowOpacityClass}`}>
       <div className={`pointer-events-none relative rounded-full border-2 mr-2 ${avatarClass} ${talkingClass}`}>
         <img
           onError={e => {
