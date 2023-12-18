@@ -60,6 +60,14 @@ export const SettingsView = ({
             </select>
           </div>
 
+          <div>
+            <label className="block mb-2 text-sm font-medium text-white">Show bottom</label>
+            <select className="bg-zinc-800 text-white p-2 rounded-md w-full" defaultValue={ localStorage.getItem("show_bottom") ?? "false" } onChange={(e) => localStorage.setItem("show_bottom", e.target.value)}>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </select>
+          </div>
+
           <hr className="border-zinc-800" />
 
           <div className="">
