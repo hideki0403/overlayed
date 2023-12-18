@@ -49,14 +49,17 @@ export const SettingsView = ({
         <div className="flex flex-col gap-4">
           <h1 className="text-xl font-bold">Settings</h1>
 
-          <Button
-            variant="secondary"
-            onClick={() => {
-              navigate("/log");
-            }}
-          >
-            Audit log
-          </Button>
+          <div>
+            <label className="block mb-2 text-sm font-medium text-white">Icon size</label>
+            <select className="bg-zinc-800 text-white p-2 rounded-md w-full" defaultValue={ localStorage.getItem("icon_size") ?? "base" } onChange={(e) => localStorage.setItem("icon_size", e.target.value)}>
+              <option value="xs">Extra Small</option>
+              <option value="sm">Small</option>
+              <option value="base">Medium</option>
+              <option value="lg">Large</option>
+              <option value="xl">Extra Large</option>
+            </select>
+          </div>
+
           <hr className="border-zinc-800" />
 
           <div className="">
@@ -157,6 +160,14 @@ export const SettingsView = ({
               }}
             >
               Open Config Dir
+            </Button>
+            <Button
+              variant="secondary"
+              onClick={() => {
+                navigate("/log");
+              }}
+            >
+              Audit log
             </Button>
             <p>
               If you find any issues or bugs please report them on the{" "}

@@ -13,7 +13,7 @@ export const User = ({ item }: { item: OverlayedUser }) => {
   const avatarClass = selfMuted || selfDeafened ? "text-red-500" : "";
 
   return (
-    <div className="flex flex-wrap py-1 p-2 items-center">
+    <div className={`flex flex-wrap py-1 p-2 items-center text-${ localStorage.getItem("icon_size") ?? "base" }`}>
       <div className={`pointer-events-none relative rounded-full border-2 mr-2 ${avatarClass} ${talkingClass}`}>
         <img
           onError={e => {
