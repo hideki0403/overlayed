@@ -9,12 +9,12 @@ export const NavBar = ({ clickthrough, isUpdateAvailable }: { clickthrough: bool
   const location = useLocation();
   const navigate = useNavigate();
   const { currentChannel } = useAppStore();
-  const opacity = clickthrough && location.pathname === "/channel" ? "opacity-0" : "opacity-100";
+  const show = clickthrough && location.pathname === "/channel";
 
-  return (
+  return (!show &&
     <div
       data-tauri-drag-region
-      className={`${opacity} cursor-default rounded-t-lg font-bold select-none pr-4 pl-1 p-1 bg-white dark:bg-zinc-900`}
+      className="cursor-default rounded-t-lg font-bold select-none pr-4 pl-1 p-1 bg-white dark:bg-zinc-900"
     >
       <div data-tauri-drag-region className="flex justify-between">
         <div className="flex items-center">
