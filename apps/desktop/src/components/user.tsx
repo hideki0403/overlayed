@@ -7,15 +7,17 @@ export const User = ({ item }: { item: OverlayedUser }) => {
 
   const avatarUrl = avatarHash ? `https://cdn.discordapp.com/avatars/${id}/${avatarHash}.jpg` : "/img/default.png";
 
-  const lowOpacityClass = localStorage.getItem("low_opacity") ? talking ? "" : "opacity-50" : "";
-  const talkingClass = talking ? "border-green-500" : "border-zinc-800";
+  const lowOpacityClass = localStorage.getItem("low_opacity") === "true" ? talking ? "" : "opacity-50" : "";
+  const talkingClass = talking && localStorage.getItem("disable_circle") !== "true" ? "" : "outline-0";
   const mutedClass = selfMuted ? "text-zinc-400" : "";
   const mutedAndDeafened = selfMuted && selfDeafened;
   const avatarClass = selfMuted || selfDeafened ? "text-red-500" : "";
 
+  const transition = "transition-all ease-in-out duration-75";
+
   return (
-    <div className={`flex flex-wrap py-1 p-2 items-center text-${ localStorage.getItem("icon_size") ?? "base" } ${lowOpacityClass}`}>
-      <div className={`pointer-events-none relative rounded-full border-2 mr-2 ${avatarClass} ${talkingClass}`}>
+    <div className={`flex flex-wrap py-1 p-2 items-center text-${ localStorage.getItem("icon_size") ?? "base" } ${lowOpacityClass} ${transition}`}>
+      <div className={`pointer-events-none relative rounded-full mr-2 ${avatarClass}`}>
         <img
           onError={e => {
             // @ts-ignore
@@ -25,7 +27,7 @@ export const User = ({ item }: { item: OverlayedUser }) => {
           }}
           src={avatarUrl}
           alt="avatar"
-          className="rounded-full w-8 h-8"
+          className={`rounded-full w-8 h-8 outline outline-green-500 outline-2 outline-offset-[-2px] ${talkingClass} ${transition}`}
         />
 
         <div className="absolute flex md:hidden left-[10px] bottom-[-4px] bg-black rounded-full text-red-500">

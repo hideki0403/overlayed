@@ -76,6 +76,14 @@ export const SettingsView = ({
             </select>
           </div>
 
+          <div>
+            <label className="block mb-2 text-sm font-medium text-white">Disable speaking circle</label>
+            <select className="bg-zinc-800 text-white p-2 rounded-md w-full" defaultValue={ localStorage.getItem("disable_circle") ?? "false" } onChange={(e) => localStorage.setItem("disable_circle", e.target.value)}>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </select>
+          </div>
+
           <hr className="border-zinc-800" />
 
           <div className="">
