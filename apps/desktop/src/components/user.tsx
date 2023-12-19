@@ -37,7 +37,7 @@ export const User = ({ item }: { item: OverlayedUser }) => {
       </div>
 
       <div
-        className={`max-w-[calc(100%_-_50px)] md:flex hidden pointer-events-none items-center rounded-md bg-zinc-800 ${mutedClass} p-1 pl-2 pr-2`}
+        className={`max-w-[calc(100%_-_50px)] md:flex hidden pointer-events-none items-center rounded-md ${localStorage.getItem("disable_username_bg") === "true" ? "" : "bg-zinc-800 pl-2" } ${mutedClass} p-1 pr-2`}
       >
         <span className="truncate text-ellipsis">{item.username}</span>
         <div className="flex">
